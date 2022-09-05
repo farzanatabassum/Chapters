@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import { addDoc, collection } from "firebase/firestore";
 import { database, auth } from "../firebase";
 
-const CreateBlog = () => {
+const CreateBlog = ({isAuth}) => {
   const [title,setTitle]=useState('');
   const [post,setPost]=useState('');
   const router=useRouter();
@@ -17,6 +17,11 @@ const CreateBlog = () => {
     router.push('/');
     
   }
+  useEffect(()=>{
+    if(!isAuth){
+      router.push('/Login')
+    }
+  },[])
   return (
     <div className='flex justify-center my-7'>
 <form className="w-full max-w-lg">

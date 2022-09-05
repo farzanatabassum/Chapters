@@ -2,26 +2,29 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import { addDoc, collection } from "firebase/firestore";
 import { database, auth } from "../firebase";
+import { async } from '@firebase/util';
 
-const CreateBlog = ({isAuth}) => {
+const CreateBlog = () => {
   const [title,setTitle]=useState('');
   const [post,setPost]=useState('');
-  const router=useRouter();
-  const submitBlog=()=>{
-    var blog={
+  let router=useRouter();
+  const blogCollection = collection(database, "blogs");
+  const submitBlog= async ()=>{
+    await addDoc(blogCollection, {
       title:title,
-      post:post
+      post:post,
+      author: { name: auth.currentUser.displayName }
 
-    };
-    console.log(blog);
-    router.push('/');
+
+    });
+    router.push('/Blog');
     
-  }
-  useEffect(()=>{
-    if(!isAuth){
-      router.push('/Login')
-    }
-  },[])
+  };
+
+ 
+   
+  
+
   return (
     <div className='flex justify-center my-7'>
 <form className="w-full max-w-lg">

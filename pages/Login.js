@@ -9,7 +9,7 @@ const Login = () => {
     const signInWithGoogle = () => {
       signInWithPopup(auth, provider).then((response) => {
         localStorage.setItem("Token", response.user.accessToken)
-        router.push("/CreateBlog")
+        router.push("/")
       })
     }
 

@@ -1,7 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 
+
+
 const NavBar = () => {
+  
+
+
+
+  
   return (
     <div>
 <nav className="bg-gray-800">
@@ -25,12 +32,19 @@ const NavBar = () => {
                 <Link href='/Blog'>
                 <li className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Blogs</li>
                 </Link>
-                <Link href='/CreateBlog'>
+                
+                
+                  <Link href='/Login'>
+                  <li  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign In</li>
+                  </Link>
+
+        
+            <Link href='/CreateBlog'>
                 <li  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Create a Blog</li>
                 </Link>
-                <Link href='/Login'>
-                <li  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Sign In</li>
-                </Link>
+              <button > Log Out</button>
+         
+                
             </ul>
 
         </div>

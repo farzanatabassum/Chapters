@@ -9,15 +9,26 @@ const CreateBlog = () => {
   const [post,setPost]=useState('');
   let router=useRouter();
   const blogCollection = collection(database, "blogs");
+  // submit Blog
   const submitBlog= async ()=>{
-    await addDoc(blogCollection, {
-      title:title,
-      post:post,
-      author: { name: auth.currentUser.displayName }
+    if(title==='' || post==='')
+    {
+      alert('Please fill up the  boxes')
+      return false
+    }
+    else{
+      await addDoc(blogCollection, {
+        title:title,
+        post:post,
+        author: { name: auth.currentUser.displayName }
+  
+  
+      });
+      router.push('/Blog')
+    
+    
 
-
-    });
-    router.push('/Blog');
+    }
     
   };
 
@@ -43,7 +54,7 @@ const CreateBlog = () => {
       <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
         Post
       </label>
-      <textarea className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="message"  onChange={(e)=>setPost(e.target.value)}></textarea>
+      <textarea className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48  resize-none md:resize" id="message"   onChange={(e)=>setPost(e.target.value)}></textarea>
     </div>
   </div>
   <div className="md:flex md:items-center">

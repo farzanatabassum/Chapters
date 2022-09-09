@@ -28,35 +28,30 @@ const Blog = () => {
   }
   return (
     <div>
-      <section className="text-gray-600 body-font">
-  <div className="container px-5 py-24 mx-auto">
-    <div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-      <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">CHAPTERS BLOG</h1>
-      <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">Its creativity and you.</p>
-    </div >
+     <section className="bg-white dark:bg-gray-900">
+  <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
+          <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">CHAPTERS</h2>
+          <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">Its creativity and you.</p>
+      </div> 
       {blogLists.map((blogs) => {
         return (
-           <div className="flex flex-row flex-wrap -m-4 items-center ">
-      <div className="xl:w-1/3 md:w-1/2 p-4">
-        <div className="border border-x-slate-600 p-6 rounded-lg"> 
-        
-          <h2 className="text-lg text-gray-900 font-medium title-font mb-2">{blogs.title}</h2>
-          <p className="leading-relaxed text-base">{blogs.post}</p>
-          <h3>@{blogs.author.name}</h3>
-
-        </div>
-     </div>
-
- 
-</div>
+      <div className=" mt-4 grid  grid-8  lg:grid-cols-1">
+          <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+              <h1 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">{blogs.title}</h1>
+              <p className="mb-5 font-light text-gray-500 dark:text-gray-400">{blogs.post}</p>
+              <h3 className="mb-2 text-xl  tracking-tight text-slate-600 dark:text-white">@{blogs.author.name}</h3>
+          </article>               
+      </div> 
        
 
         )
       })}
-      </div>
+       </div>
 </section>
     </div>
   );
 }
+    
 
 export default Blog

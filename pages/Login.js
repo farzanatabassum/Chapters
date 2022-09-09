@@ -12,6 +12,9 @@ const Login = () => {
         router.push("/CreateBlog")
       }
       )
+      .catch(error=>{
+        alert('Cannot sign in, Please try again')
+      })
     }
 
 

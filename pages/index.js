@@ -1,8 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
-import styles from '../styles/Home.module.css'
+
 
 export default function Home() {
   return (
@@ -13,15 +12,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main  >
-        <h1 className='text-center font-bold text-4xl  '>
-          Welcome to CHAPTERS
-        </h1>
-        <Image src='/home-pg.jpg' alt='background picture' width={1800} height={1000}></Image>
+      
+        <div className='flex justify-center mt-3'>
+
+        <Image src='/navlogo.png' alt='logo' width={200} height={120} ></Image>
+        </div>
+
+          <h1 className='text-center font-bold text-4xl mb-3 '>
+            Welcome to CHAPTERS
+          </h1>
+        <Image src='/home-pg.jpg' alt='background picture' width={1800} height={1500}className='my-10'></Image>
+
+     
 
        
 
         
       </main>
+      <Footer />
 
     </div>
   )

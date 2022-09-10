@@ -1,10 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
 
+
 const NavBar = () => {
    return (
     <div>
-<nav className="bg-gray-800">
+<nav className="bg-gray-600">
   <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-14 ">
     <div className="relative flex h-16 items-center justify-between">
       <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -14,23 +15,25 @@ const NavBar = () => {
         </button>
       </div>
       <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+
         <div className="flex flex-shrink-0 items-center">
           
         <div className="hidden sm:ml-6 sm:block">
             {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
             <ul className="flex justify-center ">
+
                 <Link href='/'>
-                    <li className=" text-white px-3 py-2 rounded-md text-sm font-medium">Home</li>
+                    <li className=" text-white  px-20 py-7 rounded-md text-sm font-medium">Home</li>
                 </Link>
                 <Link href='/Blog'>
-                <li className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Blogs</li>
+                <li className="text-gray-300 hover:bg-gray-700 hover:text-white px-20 py-7 rounded-md text-sm font-medium">Blogs</li>
                 </Link>
                    <Link href='/CreateBlog'>
-                   <li  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Create a Blog</li>
+                   <li  className="text-gray-300 hover:bg-gray-700 hover:text-white  px-20 py-7 rounded-md text-sm font-medium">Create a Blog</li>
                    </Link>                                
                     
  <Link href='/Login'>
-                   <li  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium " >Sign In/Sign Out</li>
+                   <li  className="text-gray-300 hover:bg-gray-700 hover:text-white  px-20 py-7 rounded-md text-sm font-medium " >Sign In/Sign Out</li>
                    </Link>
 
              

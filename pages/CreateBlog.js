@@ -32,7 +32,13 @@ const CreateBlog = () => {
     
   };
 
- 
+  useEffect(() => {
+    let token = localStorage.getItem('Token')
+    if (!token) {
+      router.push('/Login')
+      alert('Please sign in')
+    }
+  }, [])
    
   
 

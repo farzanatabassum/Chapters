@@ -1,6 +1,6 @@
 import React from 'react'
 import { getDocs, collection, doc } from "firebase/firestore";
-import { auth, database } from "../firebase";
+import { database } from "../firebase";
 import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
 
@@ -10,22 +10,18 @@ const Blog = () => {
   const blogCollection = collection(database, "blogs");
   let router = useRouter()
   useEffect(() => {
-    let token = localStorage.getItem('Token')
-    if (token) {
-      getBlog()
+    const getBlog = async () => {
+      await getDocs( blogCollection)
+        .then((response) => {
+          setBlogtList (response.docs.map((doc) => {
+            return { ...doc.data(), id: doc.id }
+          }))
+        })
     }
-    if (!token) {
-      router.push('/Login')
-    }
+    getBlog();
+    
   }, [])
-  const getBlog = async () => {
-    await getDocs( blogCollection)
-      .then((response) => {
-        setBlogtList (response.docs.map((doc) => {
-          return { ...doc.data(), id: doc.id }
-        }))
-      })
-  }
+ 
   return (
     <div>
      <section className="bg-white dark:bg-gray-900">

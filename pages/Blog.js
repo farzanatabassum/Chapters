@@ -26,7 +26,7 @@ const Blog = () => {
     getBlog();
 
     
-  }, [])
+  })
  
   return (
     <div>
@@ -42,6 +42,7 @@ const Blog = () => {
       </div> 
       {blogLists.map((blogs) => {
         return (
+      // eslint-disable-next-line react/jsx-key
       <div className=" mt-4 grid  grid-8  lg:grid-cols-1">
           <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
               <h1 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">{blogs.title}</h1>

@@ -42,7 +42,7 @@ const CreateBlog = () => {
       alert('Please sign in')
       
     }
-  }, [])
+  })
    
   
 

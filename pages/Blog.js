@@ -1,16 +1,13 @@
 import React from 'react'
 import { getDocs, collection, doc } from "firebase/firestore";
 import { database } from "../firebase";
-import { useRouter } from 'next/router';
-import { useEffect, useState,useRef } from "react";
+import { useEffect, useState} from "react";
 
 
 const Blog = () => {
   const [blogLists, setBlogtList] = useState([]);
   const blogCollection = collection(database, "blogs");
-  let router = useRouter()
-  //loading
-  const spinner=useRef(null)
+  
   useEffect(() => {
     const getBlog = async () => {
       await getDocs( blogCollection)
@@ -19,14 +16,16 @@ const Blog = () => {
             return { ...doc.data(), id: doc.id }
           }))
         })
-        spinner.current.setAttribute('style','display:none')
-
+       
+  
     }
 
-    getBlog();
-
+        getBlog();
     
-  })
+  },[])
+  
+
+
  
   return (
     <div>
@@ -36,9 +35,7 @@ const Blog = () => {
       <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
           <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">CHAPTERS</h2>
           <p className="font-light text-gray-500 sm:text-xl dark:text-gray-400">Its creativity and you.</p>
-          <button type="button" ref={spinner} disabled>
-            Loading...
-          </button>
+        
       </div> 
       {blogLists.map((blogs) => {
         return (
